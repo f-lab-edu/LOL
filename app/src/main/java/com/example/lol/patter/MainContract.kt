@@ -8,9 +8,10 @@ interface MainContract {
     interface View {
 //        fun getItem(response: Response<List<LOLResponseItem>>)
         fun setUI(lolData: ArrayList<LOLResponseItem>)
+        fun setToast(message: String)
     }
 
     interface Presenter {
-        fun getAPI(context: Context)
+        fun getAPI()
     }
 }
