@@ -11,21 +11,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainPresenter(private val view: MainContract.View) : MainContract.Presenter {
-    override fun getAPI(context: Context) {
+    override fun loadUserInfo() {
         val retrofitAPI = RetrofitConnection.getInstance().create(LOLService::class.java)
         retrofitAPI.getInformation(
             //api 요청이 실패한다면 인증키 유효기간이 지났기 때문(인증키 유효기간 하루)
-            "RGAPI-8633294c-4856-42d8-9928-e3131e0280ef"
+            "RGAPI-c2953966-ad8f-427a-9bd9-844cf9521cdf"
         ).enqueue(object : Callback<List<LOLResponseItem>> {
             override fun onResponse(
                 call: Call<List<LOLResponseItem>>,
                 response: Response<List<LOLResponseItem>>
             ) {
                 if (response.isSuccessful) {
-                    Toast.makeText(context, "데이터 가져오기 성공!", Toast.LENGTH_SHORT).show()
+                    view.setToast("데이터 가져오기 성공!")
                     response.body()?.let { view.setUI(it as ArrayList<LOLResponseItem>) }
                 } else {
-                    Toast.makeText(context, "데이터 가져오기 실패...", Toast.LENGTH_SHORT).show()
+                    view.setToast("데이터 가져오기 실패!")
                 }
             }
 

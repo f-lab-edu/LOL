@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
+        <variable
+            name="data"
+            type="com.example.lol.retrofit.LOLResponse.LOLResponseItem" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,7 +22,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="20dp"
-            android:text="2"
             android:gravity="center"
             android:textSize="19sp"
             android:textColor="@color/white" />
@@ -29,7 +30,7 @@
             android:id="@+id/champ_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="championName"
+            android:text="@{String.valueOf(data.championId)}"
             app:layout_constraintStart_toEndOf="@id/champ_img"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toTopOf="@id/champ_level"
@@ -41,7 +42,7 @@
             android:id="@+id/champ_level"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="championLevel"
+            android:text="@{String.valueOf(data.championLevel)}"
             app:layout_constraintStart_toEndOf="@id/champ_img"
             app:layout_constraintTop_toBottomOf="@id/champ_name"
             app:layout_constraintBottom_toTopOf="@id/champ_points"
@@ -53,7 +54,7 @@
             android:id="@+id/champ_points"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="championPoints"
+            android:text="@{String.valueOf(data.championPoints)}"
             app:layout_constraintStart_toEndOf="@id/champ_img"
             app:layout_constraintTop_toBottomOf="@id/champ_level"
             app:layout_constraintBottom_toBottomOf="parent"
