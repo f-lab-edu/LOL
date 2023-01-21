@@ -13,7 +13,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel() : BaseViewModel() {
+class MainViewModel() : ViewModel() {
 
     private val _items = MutableLiveData<ArrayList<LOLResponseItem>>()
     val items: LiveData<ArrayList<LOLResponseItem>>
@@ -29,7 +29,7 @@ class MainViewModel() : BaseViewModel() {
     }
 
     fun loadUserInfo() {
-        uiScope.launch {
+        viewModelScope.launch {
             val retrofitAPI = RetrofitConnection.getInstance().create(LOLService::class.java)
             retrofitAPI.getInformation(
                 //api 요청이 실패한다면 인증키 유효기간이 지났기 때문(인증키 유효기간 하루)
