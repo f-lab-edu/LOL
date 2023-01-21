@@ -8,17 +8,12 @@ import androidx.lifecycle.viewModelScope
 import com.example.lol.retrofit.LOLResponse.LOLResponseItem
 import com.example.lol.retrofit.LOLService
 import com.example.lol.retrofit.RetrofitConnection
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel() : ViewModel() {
-    private val job = Job()
-    private val uiScope = CoroutineScope(Dispatchers.Main + job)
+class MainViewModel() : BaseViewModel() {
 
     private val _items = MutableLiveData<ArrayList<LOLResponseItem>>()
     val items: LiveData<ArrayList<LOLResponseItem>>
