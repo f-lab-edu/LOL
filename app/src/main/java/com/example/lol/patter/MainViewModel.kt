@@ -10,9 +10,12 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-@HiltViewModel
-class MainViewModel() : ViewModel() {
+//@HiltViewModel
+class MainViewModel
+//@Inject constructor()
+    : ViewModel() {
 
     private val _items = MutableLiveData<ArrayList<LOLResponseItem>>(arrayListOf())
     val items: LiveData<ArrayList<LOLResponseItem>>

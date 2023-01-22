@@ -15,10 +15,12 @@ import com.example.lol.retrofit.LOLResponse.LOLResponseItem
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class MainActivity : AppCompatActivity(){
 
-    @Inject lateinit var analytics: AnalyticsAdapter
+//    @Inject lateinit var viewModel: MainViewModel
+
+//    private val viewModel: MainViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
