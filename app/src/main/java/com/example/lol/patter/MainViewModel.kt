@@ -1,10 +1,7 @@
 package com.example.lol.patter
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.lol.retrofit.LOLResponse.LOLResponseItem
 import com.example.lol.retrofit.LOLService
 import com.example.lol.retrofit.RetrofitConnection
@@ -15,16 +12,16 @@ import retrofit2.Response
 
 class MainViewModel() : ViewModel() {
 
-    private val _items = MutableLiveData<ArrayList<LOLResponseItem>>()
+    private val _items = MutableLiveData<ArrayList<LOLResponseItem>>(arrayListOf())
     val items: LiveData<ArrayList<LOLResponseItem>>
         get() = _items
+
 
     private val _fail = MutableLiveData<Boolean>()
     val fail: LiveData<Boolean>
         get() = _fail
 
     init {
-        _items.value = arrayListOf()
         _fail.value = false
     }
 
@@ -33,7 +30,7 @@ class MainViewModel() : ViewModel() {
             val retrofitAPI = RetrofitConnection.getInstance().create(LOLService::class.java)
             retrofitAPI.getInformation(
                 //api 요청이 실패한다면 인증키 유효기간이 지났기 때문(인증키 유효기간 하루)
-                "RGAPI-51ba6f6b-c589-4fc0-8ba6-3c3668761edd"
+                "RGAPI-4d0154b6-e226-48ca-9d48-b2b608b16f98"
             ).enqueue(object : Callback<List<LOLResponseItem>> {
                 override fun onResponse(
                     call: Call<List<LOLResponseItem>>,
