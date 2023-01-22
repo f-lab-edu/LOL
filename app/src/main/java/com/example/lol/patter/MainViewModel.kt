@@ -5,11 +5,13 @@ import androidx.lifecycle.*
 import com.example.lol.retrofit.LOLResponse.LOLResponseItem
 import com.example.lol.retrofit.LOLService
 import com.example.lol.retrofit.RetrofitConnection
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
+@HiltViewModel
 class MainViewModel() : ViewModel() {
 
     private val _items = MutableLiveData<ArrayList<LOLResponseItem>>(arrayListOf())
