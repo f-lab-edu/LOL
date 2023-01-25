@@ -13,7 +13,7 @@
         android:layout_height="100dp">
 
         <ImageView
-            android:id="@+id/champ_img"
+            android:id="@+id/img_champ"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:background="#FFFFFF"
@@ -27,36 +27,36 @@
             android:textColor="@color/white" />
 
         <TextView
-            android:id="@+id/champ_name"
+            android:id="@+id/tv_champ_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(data.championId)}"
-            app:layout_constraintStart_toEndOf="@id/champ_img"
+            app:layout_constraintStart_toEndOf="@id/img_champ"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/champ_level"
+            app:layout_constraintBottom_toTopOf="@id/tv_champ_level"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="10dp" />
 
         <TextView
-            android:id="@+id/champ_level"
+            android:id="@+id/tv_champ_level"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(data.championLevel)}"
-            app:layout_constraintStart_toEndOf="@id/champ_img"
-            app:layout_constraintTop_toBottomOf="@id/champ_name"
-            app:layout_constraintBottom_toTopOf="@id/champ_points"
+            app:layout_constraintStart_toEndOf="@id/img_champ"
+            app:layout_constraintTop_toBottomOf="@id/tv_champ_name"
+            app:layout_constraintBottom_toTopOf="@id/tv_champ_points"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="10dp" />
 
         <TextView
-            android:id="@+id/champ_points"
+            android:id="@+id/tv_champ_points"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{String.valueOf(data.championPoints)}"
-            app:layout_constraintStart_toEndOf="@id/champ_img"
-            app:layout_constraintTop_toBottomOf="@id/champ_level"
+            app:layout_constraintStart_toEndOf="@id/img_champ"
+            app:layout_constraintTop_toBottomOf="@id/tv_champ_level"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"
